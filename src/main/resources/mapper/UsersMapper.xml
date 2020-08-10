@@ -4,6 +4,8 @@
 <!-- 设置为IUserDao接口方法提供sql语句配置 -->
 <mapper namespace="com.ssm.mapper.UsersMapper">
 
+    <cache type="org.mybatis.caches.ehcache.EhcacheCache"/>
+
     <resultMap id="UsersMap" type="com.ssm.entity.Users">
 <!--        <id column="user_id" property="userId" jdbcType="INTEGER"/>-->
 <!--        <result column="user_name" property="userName" jdbcType="VARCHAR"/>-->
@@ -12,7 +14,7 @@
     </resultMap>
 
 
-    <select id="selectUserByUserId" resultMap="UsersMap" parameterType="com.ssm.entity.Users">
+    <select id="selectUserByUserId" resultMap="UsersMap" parameterType="com.ssm.entity.Users" useCache="true">
         SELECT * FROM users WHERE user_id = #{userId}
     </select>
 

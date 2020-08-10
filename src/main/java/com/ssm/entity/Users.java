@@ -1,5 +1,7 @@
 package com.ssm.entity;
 
+import java.io.Serializable;
+
 /**
  * ClassName：User
  * Description：
@@ -8,7 +10,7 @@ package com.ssm.entity;
  * CreateTime: 2020/7/4 19:06
  * @version 1.0.0
  */
-public class Users {
+public class Users implements Serializable {
 
     private int userId;
     private String userName;
